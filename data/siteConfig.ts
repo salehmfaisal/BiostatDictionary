@@ -59,11 +59,11 @@ export const siteConfig: SiteConfig = {
   },
   founder: {
     // Placeholder — replace with the real owner details before launch.
-    name: "[Founder name — replace in data/siteConfig.ts]",
-    role: "[Role and qualifications — replace in data/siteConfig.ts]",
+    name: "Abu Saleh Mosa Faisal",
+    role: "CEO, Biostat Consultant LLC",
   },
   contact: {
-    email: "hello@biostatdictionary.com",
+    email: "afaisal@isrt.ac.bd",
   },
   social: {
     twitter: "",

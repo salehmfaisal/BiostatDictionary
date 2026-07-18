@@ -82,9 +82,7 @@ export default function AboutPage() {
         <p>
           {siteConfig.name} is maintained by {siteConfig.founder.name}
           {" — "}
-          {siteConfig.founder.role}. These are placeholders; the site owner should
-          replace them with real details in{" "}
-          <code>data/siteConfig.ts</code> before launch. Reach us at{" "}
+          {siteConfig.founder.role}. Reach us at{" "}
           <a href={`mailto:${siteConfig.contact.email}`} className="text-brand underline">
             {siteConfig.contact.email}
           </a>
