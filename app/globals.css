@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Theme tokens. All colors are defined here as RGB channel triplets so Tailwind's
+ * `<alpha-value>` utilities work. Editing these values re-themes the whole site.
+ */
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, Cambria, "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --color-surface: 255 255 255;
+  --color-surface-muted: 246 247 249;
+  --color-content: 24 31 42;
+  --color-content-muted: 91 102 117;
+  --color-border: 224 228 234;
+  --color-brand: 21 106 122; /* calm teal */
+  --color-brand-strong: 14 78 92;
+  --color-highlight: 255 244 199; /* soft amber for selected terms */
+}
+
+.dark {
+  --color-surface: 15 20 27;
+  --color-surface-muted: 22 29 38;
+  --color-content: 226 231 238;
+  --color-content-muted: 150 161 176;
+  --color-border: 39 48 60;
+  --color-brand: 91 197 214;
+  --color-brand-strong: 130 214 228;
+  --color-highlight: 66 62 30; /* muted amber for dark mode */
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Offset for the sticky header when jumping to anchored terms. */
+  scroll-padding-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  background-color: rgb(var(--color-surface));
+  color: rgb(var(--color-content));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Visible focus ring for keyboard users. */
+:focus-visible {
+  outline: 2px solid rgb(var(--color-brand));
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Soft highlight applied to a selected term via ?term= or a click. */
+.term-selected {
+  background-color: rgb(var(--color-highlight));
+  border-radius: 0.5rem;
+  scroll-margin-top: 6rem;
+  transition: background-color 0.4s ease;
+}
+
+/* Readable body copy inside term explanations. */
+.reading p {
+  margin-bottom: 0.85rem;
+  line-height: 1.7;
+}
+.reading p:last-child {
+  margin-bottom: 0;
+}
+
+/* KaTeX: allow long formulas to scroll horizontally on small screens. */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
